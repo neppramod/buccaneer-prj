@@ -12,7 +12,7 @@
 <%= form_for(@donation, :url => {:action => 'create'}) do |p| %>
   <p>
     <%= p.label :monetary_value %><br>
-    <%= p.text_field :monetary_value %>
+    <%= p.text_field :monetary_value, :class => "input-xlarge" %>
   </p>
   <p>
     <%= p.label :date%><br>
