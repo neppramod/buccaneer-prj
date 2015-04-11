@@ -1,0 +1,40 @@
+ 
+<h1>Event edit</h1>
+
+<%= form_for(@event, :url => {:action => 'update'}) do |p| %>
+    <p>
+      <%= p.label :eventName %><br>
+      <%= p.text_field :eventName %>
+    </p>
+    <p>
+      <%= p.label :eventStartDate%><br>
+      <%= p.text_field :eventStartDate%>
+    </p>
+    <p>
+      <%= p.label :eventEndDate%><br>
+      <%= p.text_field :eventEndDate%>
+    </p>
+
+    <p>
+      <%= p.label :location%><br>
+      <%= p.text_field :location%>
+    </p>
+
+    <p>
+      <%= p.label :description%><br>
+      <%= p.text_area :description%>
+    </p>
+
+    <p>
+      <%= p.label :persons %>
+      <%= select_tag "participating_people",
+      options_from_collection_for_select(Person.all, 'id', 'name', @event.persons.map{ |j| j.id }), :multiple => true %>
+    </p>
+
+    
+    <p>
+      <%= submit_tag("Update Event") %>
+    </p>
+    
+    
+<% end %>

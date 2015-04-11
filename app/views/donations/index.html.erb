@@ -1,0 +1,26 @@
+<h1>Events</h1>
+
+<%= link_to 'New Donation', new_donation_path, :class =>'btn btn-primary'%>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th colspan="2"></th>
+    </tr>
+    <% @donations.each do |donation| %>
+        <tr>
+            <td><%= donation.monetary_value %></td>
+            <td><%= donation.date%></td>
+	    <td><%= donation.type%></td>
+	    <td><%= donation.description%></td>
+            <td><%= link_to 'Show', donation_path(donation) %></td>
+            <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+            <td><%= link_to 'Destroy', donation_path(donation),
+
+		method: :delete,
+            data: {confirm: 'Are you sure?'}
+             %></td>
+        </tr>
+    <% end %>
+</table>

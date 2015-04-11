@@ -1,0 +1,31 @@
+<h1>Donation#show</h1>
+<p>
+  <strong>Monetary Value:</strong>
+  <%= @donation.monetary_value %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @donation.date%>
+</p>
+<p>
+  <strong>Type:</strong>
+  <%= @donation.type%>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @donation.description%>
+</p>
+<p>Persons</p>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @donation.persons.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', donations_path %>
+<%= link_to 'Edit', edit_donation_path(@donation) %>
