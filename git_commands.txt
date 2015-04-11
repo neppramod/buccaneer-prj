@@ -1,0 +1,21 @@
+# Only required commands
+
+# Add all files
+git add .
+
+# Commit
+git commit -m "Whatever message"
+
+# Update
+git pull
+
+# push
+git push origin master
+
+
+# First do this
+git clone <URL>
+
+# Only one time command
+git config --global user.name "Your name"
+git config --global user.email name@email.com

@@ -1,0 +1,22 @@
+<h1>Create new Event</h1>
+
+<%= form_for(@event, :url => {:action => 'create'}) do |p| %>
+<p>
+	<%= p.label :name %><br>
+	<%= p.text_field :name %>
+</p>
+<p>
+	<%= p.label :location%><br>
+	<%= p.text_field :location%>
+</p>
+
+<p>
+  <%= p.label :persons %>
+  <%= select_tag "participating_people",
+  options_from_collection_for_select(Person.all, 'id', 'name', @event.persons.map{ |j| j.id }), :multiple => true %>
+</p>
+
+<p>
+	<%= submit_tag("Create Event") %>
+</p>
+<% end %>

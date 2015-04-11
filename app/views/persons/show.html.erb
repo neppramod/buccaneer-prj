@@ -1,0 +1,44 @@
+<h1>Person#show</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+<p>
+  <strong>Hobby:</strong>
+  <%= @person.hobby %>
+</p>
+
+<h2>Comments</h2>
+<% @person.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Comment on this person</h2>
+<%= form_for([@person, @person.comments.build]) do |c| %>
+
+  <p>
+    <%= c.label :commenter %><br>
+    <%= c.text_field :commenter %>
+  </p>
+
+  <p>
+    <%= c.label :body %><br>
+    <%= c.text_area :body %>
+  </p>
+
+  <p>
+    <%= c.submit %>
+  </p>
+  
+  
+<% end %>
+
+<%= link_to 'Back', persons_path %>
+<%= link_to 'Edit', edit_person_path(@person) %>

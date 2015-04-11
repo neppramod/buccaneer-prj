@@ -1,0 +1,23 @@
+<h1>Persons</h1>
+
+<%= link_to 'New Article', new_person_path %>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Hobby</th>
+        <th colspan="2"></th>
+    </tr>
+    <% @persons.each do |person| %>
+        <tr>
+            <td><%= person.name %></td>
+            <td><%= person.hobby %></td>
+            <td><%= link_to 'Show', person_path(person) %></td>
+            <td><%= link_to 'Edit', edit_person_path(person) %></td>
+            <td><%= link_to 'Destroy', person_path(person),
+            method: :delete,
+            data: {confirm: 'Are you sure?'}
+             %></td>
+        </tr>
+    <% end %>
+</table>
