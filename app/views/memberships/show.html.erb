@@ -1,0 +1,23 @@
+<h1>Membership#show</h1>
+<p>
+  <strong>Membership Level:</strong>
+  <%= @membership.lvl %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @membership.amt%>
+</p>
+<p>Users</p>
+<table>
+	<tr>
+		<th>Name</th>
+	<tr>
+	<% @membership.persons.each do |p|%>
+		<tr>
+			<td><%= p.name %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Back', memberships_path %>
+<%= link_to 'Edit', edit_membership_path(@membership) %>
