@@ -13,7 +13,7 @@ git pull
 git push origin master
 
 
-# Not so much required commands
+# First do this
 git clone <URL>
 
 # Only one time command
