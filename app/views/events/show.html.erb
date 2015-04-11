@@ -1,0 +1,23 @@
+<h1>Event#show</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @event.location%>
+</p>
+<p>Persons</p>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @event.persons.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event) %>

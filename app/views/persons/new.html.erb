@@ -1,0 +1,15 @@
+<h1>Create new Person</h1>
+
+<%= form_for(@person, :url => {:action => 'create'}) do |p| %>
+<p>
+	<%= p.label :name %><br>
+	<%= p.text_field :name %>
+</p>
+<p>
+	<%= p.label :hobby %><br>
+	<%= p.text_field :hobby %>
+</p>
+<p>
+	<%= submit_tag("Create Person") %>
+</p>
+<% end %>
