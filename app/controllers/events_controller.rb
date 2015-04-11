@@ -23,21 +23,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
     
-    
-    #@persons = [Person.where(:_id => "550c9b3a64656c13af050000").first]
-    
-    #@persons = Person.where(:id => params[:participating_people])
-    #@persons = Person.where(:id => participating_params)
-    #@persons = Person.all
-
-    #@event.persons << @persons
-
-    #@person = Person.new
-    #@person.name="Kamrul";
-    #@event.persons << [@person]
-
     @persons = []
 
     
@@ -51,28 +37,9 @@ class EventsController < ApplicationController
       @persons.push(@person)
     end
 
-    puts "I did not get any value"
-
-    
-    
-    #@event.persons << @persons
-    # Replace @event.persons
+    # Replace @donation.persons
     @event.persons = @persons
     
-    
-    
-    puts "Prams are:::::::::::::::::::::"
-    #Rails.logger.debug params.inspect
-    #puts params[:participating_people]
-
-    #puts participating_params
-    #raise params.inspect
-
-    #puts event_params
-    puts "=======================>"
-    puts "Participating params ===> #{participating_params}"
-    
-    puts "Params were::::::::::::::::::"
 
     if @event.save
       redirect_to @event
@@ -96,7 +63,7 @@ class EventsController < ApplicationController
       @persons.push(@person)
     end
 
-    # Replace @event.persons with this new value
+    # Replace @donation.persons with this new value
     @event.persons = @persons
 
     if @event.update(event_params)
@@ -115,14 +82,11 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :location, :participating_people => [])
+    params.require(:event).permit(:eventName, :eventStartDate, :eventEndDate,:location, :description)
   end
 
   private
   def participating_params
-    #params.permit(:participating_people => [])
     params.permit(:participating_people => [])
-    #params.require(:event).permit(:participating_people)
-    #params.require(:event).permit(:name, :location, :participating_people)
   end
 end
