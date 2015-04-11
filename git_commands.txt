@@ -6,6 +6,9 @@ git add .
 # Commit
 git commit -m "Whatever message"
 
+# Update
+git pull
+
 # push
 git push origin master
 
