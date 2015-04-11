@@ -16,8 +16,16 @@ gem 'coffee-rails', '~> 4.1.0'
 # Bootstrap
 gem 'bootstrap-generators'
 
+# Moment (Formating for Date time picker)
+gem 'momentjs-rails'
+
 # Datepicker
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0' # Nice DateTime picker
+
+# Jquery-ui
+gem 'jquery-ui-rails'
+
+
 
 
 # Use jquery as the JavaScript library

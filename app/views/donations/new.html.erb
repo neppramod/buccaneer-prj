@@ -1,3 +1,12 @@
+<script type="text/javascript">
+ $(function(){
+   $( ".datetimepicker" ).datepicker({
+	 dateFormat: "yy-mm-dd"
+   });  
+ });
+ 
+</script>
+
 <h1>Create new Donation</h1>
 
 <%= form_for(@donation, :url => {:action => 'create'}) do |p| %>
@@ -7,7 +16,7 @@
   </p>
   <p>
     <%= p.label :date%><br>
-    <%= p.text_field :date%>
+    <%= p.text_field :date, :class => "datetimepicker" %>
   </p>
   <p>
     <%= p.label :type%><br>
