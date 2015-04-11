@@ -1,0 +1,31 @@
+<script type="text/javascript">
+ $(function(){
+   $( ".datetimepicker" ).datepicker({
+	 dateFormat: "yy-mm-dd"
+   });  
+ });
+ 
+</script>
+
+<h1>Create new membership</h1>
+
+<%= form_for(@membership, :url => {:action => 'create'}) do |p| %>
+<p>
+	<%= p.label :membershiplevel %><br>
+	<%= p.text_field :lvl %>
+</p>
+<p>
+	<%= p.label :membershipamount%><br>
+	<%= p.text_field :amt%>
+</p>
+
+<p>
+ <%= p.label :users %>
+ <%= select_tag "participating_people",
+ options_from_collection_for_select(Person.all, 'id', 'name', @membership.persons.map{ |j| j.id }), :multiple => true %>
+</p>	
+
+<p>
+	<%= submit_tag("Create Membership") %>
+</p>
+<% end %>

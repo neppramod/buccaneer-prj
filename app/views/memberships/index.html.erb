@@ -1,0 +1,23 @@
+<h1>Memberships</h1>
+
+<%= link_to 'New Membership', new_membership_path%>
+
+<table>
+    <tr>
+        <th>Membership Level</th>
+        <th>Amount</th>
+        <th colspan="2"></th>
+    </tr>
+    <% @memberships.each do |membership| %>
+        <tr>
+            <td><%= membership.lvl %></td>
+            <td><%= membership.amt %></td>
+            <td><%= link_to 'Show', membership_path(membership) %></td>
+            <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
+            <td><%= link_to 'Destroy', membership_path(membership),
+            method: :delete,
+            data: {confirm: 'Are you sure?'}
+             %></td>
+        </tr>
+    <% end %>
+</table>
