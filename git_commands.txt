@@ -1,0 +1,15 @@
+# Only required commands
+
+# Add all files
+git add .
+
+# Commit
+git commit -m "Whatever message"
+
+# push
+git push origin master
+
+
+# Not so much required commands
+git clone <URL>
+
