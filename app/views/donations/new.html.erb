@@ -33,6 +33,9 @@
   </p>
 
   <p>
-    <%= submit_tag("Create Donation") %>
+    <!-- <%= submit_tag("Create Donation") %> -->
+	<%= button_tag(type: "submit", class: "btn btn-default") do %>
+      Save <i class="icon-repeat"></i>
+	<% end %>	
   </p>
 <% end %>
