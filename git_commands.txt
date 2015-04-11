@@ -13,3 +13,6 @@ git push origin master
 # Not so much required commands
 git clone <URL>
 
+# Only one time command
+git config --global user.name "Your name"
+git config --global user.email name@email.com
