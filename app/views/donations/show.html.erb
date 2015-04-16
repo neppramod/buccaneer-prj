@@ -1,31 +1,49 @@
-<h1>Donation#show</h1>
-<p>
-  <strong>Monetary Value:</strong>
-  <%= @donation.monetary_value %>
-</p>
-<p>
-  <strong>Date:</strong>
-  <%= @donation.date%>
-</p>
-<p>
-  <strong>Type:</strong>
-  <%= @donation.type%>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @donation.description%>
-</p>
-<p>Persons</p>
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-  <% @donation.persons.each do |p| %>
-    <tr>
-      <td><%= p.name %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Monetary Value:</strong></div>
+  <div class="col-xs-10"><%= @donation.monetary_value %></div>
+</div>
 
-<%= link_to 'Back', donations_path %>
-<%= link_to 'Edit', edit_donation_path(@donation) %>
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Date:</strong></div>
+  <div class="col-xs-10"><%= @donation.date %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Type:</strong></div>
+  <div class="col-xs-10"><%=  @donation.type %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Description:</strong></div>
+  <div class="col-xs-10"><%=  @donation.description %></div>
+</div>
+
+<h4 class="text-info">Doners</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <table class="table-striped table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hobby</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @donation.persons.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.hobby %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container margin-top-25">
+  <%= link_to 'Edit', edit_donation_path(@donation), class: "btn btn-primary" %>
+  <%= link_to 'Back', donations_path , class: "btn btn-primary" %>
+</div>
+
