@@ -24,6 +24,10 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0' # Nice DateTime picker
 
 # Jquery-ui
 gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
+
+# Bootbox alert
+gem 'bootbox-rails', '~>0.4'
 
 
 
