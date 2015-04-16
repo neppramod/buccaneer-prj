@@ -31,12 +31,15 @@ class DonationsController < ApplicationController
     participatingpeoplevalues = participatingkv[:participating_people ]
     puts "I am saying something here"
 
-    participatingpeoplevalues.each do |pv|
-      @person = Person.where(:_id => pv).first
-      puts "THis person's name is #{@person.name}"
-      @persons.push(@person)
+    # Doners cannot work without null donations, still to prevent error, allowed null
+    if participatingpeoplevalues
+      participatingpeoplevalues.each do |pv|
+        @person = Person.where(:_id => pv).first
+        puts "THis person's name is #{@person.name}"
+        @persons.push(@person)
+      end      
     end
-
+    
     # Replace @donation.persons
     @donation.persons = @persons
     

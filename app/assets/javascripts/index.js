@@ -8,14 +8,14 @@ ready = function() {
       className: "my-modal",
       buttons: {
         success: {
-          label: "Absolutely !",
+          label: "Yes !",
           className: "btn-danger",
           callback: function() {
             return callback();
           }
         },
         chickenout: {
-          label: "No, May be later!",
+          label: "No !",
           className: "btn-success pull-left"
         }
       }
