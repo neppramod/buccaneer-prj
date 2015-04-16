@@ -14,3 +14,6 @@
 
 # Ignore idea directory
 .idea/*
+
+# To remove .idea from caching
+# git rm -r --cached .idea
