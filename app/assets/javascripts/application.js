@@ -20,8 +20,3 @@
 //= require bootstrap-datetimepicker
 //= require bootbox
 
-$(function(){
-  $( ".datetimepicker" ).datepicker({
-    dateFormat: "yy-mm-dd"
-  });        
-});

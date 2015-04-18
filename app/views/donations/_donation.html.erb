@@ -1,4 +1,10 @@
-<!-- @donation, :url -> {:action => 'create'}, :html -->
+<script>
+$(function(){
+    $( ".datetimepicker" ).datepicker({
+    dateFormat: "yy-mm-dd"
+    });
+});
+</script>
 <%= form_for(@donation, :html => {class: "form-horizontal", role: "form"} ) do |p| %>
 
     <div class="row margin-top-15">
