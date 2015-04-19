@@ -16,8 +16,8 @@
     </p>
 
     <p>
-      <%= p.label :location%><br>
-      <%= p.text_field :location%>
+      <%= p.label :location%>
+      <%= p.collection_select(:location, Address.where(address_type: "Event"), :id, :street) %>
     </p>
 
     <p>

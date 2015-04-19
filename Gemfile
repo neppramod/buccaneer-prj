@@ -12,6 +12,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'coffee-script-source', '1.8.0'
+
 
 # Bootstrap
 gem 'bootstrap-generators'
@@ -44,6 +46,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Mongoid
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

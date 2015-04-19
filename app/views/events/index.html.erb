@@ -15,7 +15,8 @@
             <td><%= event.eventName %></td>
             <td><%= event.eventStartDate%></td>
 	    <td><%= event.eventEndDate%></td>
- 	    <td><%= event.location %> </td>
+        <% @event_location = Address.find( event.location) %>
+ 	    <td><%= @event_location.address_name %> </td>
 	    <td><%= event.description%></td>
             <td><%= link_to 'Show', event_path(event) %></td>
             <td><%= link_to 'Edit', edit_event_path(event) %></td>

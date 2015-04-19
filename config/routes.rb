@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :addresses
   resources :events
   resources :donations
   resources :memberships

@@ -14,8 +14,8 @@
     <%= p.text_field :eventEndDate%>
   </p>
   <p>
-    <%= p.label :location%>
-    <%= p.text_area :location%>
+     <%= p.label :location%>
+    <%= p.collection_select(:location, Address.where(address_type: "Event"), :id, :street) %>
   </p>
 
   <p>

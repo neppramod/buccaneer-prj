@@ -6,6 +6,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
+    @event_location = Address.find( @event.location)
+
     @event.persons.each do |p|
       puts "Show is showing a showey person => #{p.name}"
     end

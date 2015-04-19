@@ -1,0 +1,29 @@
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Street:</strong></div>
+  <div class="col-xs-10"><%= @address.street %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>City:</strong></div>
+  <div class="col-xs-10"><%= @address.city %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>State:</strong></div>
+  <div class="col-xs-10"><%=  @address.state %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>County:</strong></div>
+  <div class="col-xs-10"><%=  @address.county %></div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Zip:</strong></div>
+  <div class="col-xs-10"><%=  @address.zip %></div>
+</div>
+
+<div class="container margin-top-25">
+  <%= link_to 'Edit', edit_address_path(@address), class: "btn btn-primary" %>
+  <%= link_to 'Ok', addresses_path , class: "btn btn-primary" %>
+</div>
