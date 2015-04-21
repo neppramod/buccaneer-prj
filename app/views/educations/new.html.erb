@@ -1,13 +1,2 @@
 
-<h1>Create new Education</h1>
-
-<%= form_for(@education, :url => {:action => 'create'}) do |p| %>
-  <p>
-    <%= p.label :educationlevel %><br>
-    <%= p.text_field :educationlevel %>
-  </p>
-
-  <p>
-    <%= submit_tag("Create Education") %>
-  </p>
-<% end %>
+<%= render 'education' %>
