@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row col-xs-12">
+        <span class="col-xs-11"></span>
+        <span class="col-xs-1"><%= link_to '  New', new_expertise_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'Add Educaton' %></span>
+    </div> 
+
+<table class="table-striped table-bordered table-hover table-condensed col-xs-12">
+    <thead>
+    <tr>
+      <th>Expertise</th>
+      <th colspan="6">Actions</th>
+    </tr>
+    </thead>
+<tbody>
+   <% @expertises.each do |expertise| %>
+        <tr>
+            <td><%= expertise.expertise %></td>
+            <td><%= link_to '', edit_expertise_path(expertise), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
+            <td><%= link_to '', expertise_path(expertise),
+
+        method: :delete,
+            data: {confirm: 'Are you sure?'},
+        :class => 'glyphicon glyphicon-trash',
+            :title => 'Delete'
+             %></td>
+        </tr>
+    <% end %>
+ </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+

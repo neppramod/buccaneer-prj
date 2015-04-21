@@ -1,0 +1,2 @@
+<h1> Add New Expertise </h1>
+<%= render 'expertise' %>
