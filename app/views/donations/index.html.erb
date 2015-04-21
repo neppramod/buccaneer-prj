@@ -1,7 +1,11 @@
 <div class="container">
+	<div class="row col-xs-12">
+		<span class="col-xs-11"></span>
+ 		<span class="col-xs-1"><%= link_to '  New', new_donation_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'New Donation' %></span>
+ 	</div>
   <div class="row">
-	<div class="col-sm-8">
-	<table class="table-striped table-bordered table-hover table-condensed"> 
+	<div class="col-xs-12">
+	<table class="table-striped table-bordered table-hover table-condensed col-xs-12"> 
 	  <thead>
 		<tr >
           <th>Monetary Value</th>
@@ -33,7 +37,7 @@
 		<% end %>
 	  </tbody>
 	</table>
-      <%= link_to '', new_donation_path, :class =>'glyphicon glyphicon-plus', :title=>'New Donation' %>
+     
 	</div>
   </div>
 </div>
