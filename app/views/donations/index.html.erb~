@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row col-xs-12">
+		<span class="col-xs-11"></span>
+ 		<span class="col-xs-1"><%= link_to '  New', new_donation_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'New Donation' %></span>
+ 	</div>
+  <div class="row">
+	<div class="col-xs-12">
+	<table class="table-striped table-bordered table-hover table-condensed col-xs-12"> 
+	  <thead>
+		<tr >
+          <th>Monetary Value</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Description</th>
+		  <th colspan="3">Actions</th>
+		</tr>
+	  </thead>
+	  <tbody>
+
+		<% @donations.each do |donation| %>
+          <tr>
+			<td><%= donation.monetary_value %></td>
+			<td><%= donation.date%></td>
+			<td><%= donation.type%></td>
+			<td><%= donation.description%></td>
+            <td><%= link_to '', donation_path(donation), :class => 'glyphicon glyphicon-eye-open', :title => 'Show' %></td>
+            <td><%= link_to '', edit_donation_path(donation), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
+			<td>
+			  <%= link_to '', donation_path(donation),				
+			    method: :delete,
+				data: {confirm: 'Are you sure?'},
+				:class => 'glyphicon glyphicon-trash',
+				:title => 'Delete'
+				%>
+			</td>
+          </tr>
+		<% end %>
+	  </tbody>
+	</table>
+     
+	</div>
+  </div>
+</div>

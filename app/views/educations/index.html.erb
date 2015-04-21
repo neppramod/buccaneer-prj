@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row col-xs-12">
+        <span class="col-xs-11"></span>
+        <span class="col-xs-1"><%= link_to '  New', new_education_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'Add Educaton' %></span>
+    </div> 
+
+<table class="table-striped table-bordered table-hover table-condensed col-xs-12">
+    <thead>
+    <tr>
+       <th>Education level</th>
+        <th colspan="6">Actions</th>
+    </tr>
+    </thead>
+<tbody>
+   <% @educations.each do |education| %>
+        <tr>
+            <td><%= education.educationlevel %></td>
+            <td><%= link_to '', edit_education_path(education), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
+            <td><%= link_to '', education_path(education),
+
+        method: :delete,
+            data: {confirm: 'Are you sure?'},
+        :class => 'glyphicon glyphicon-trash',
+            :title => 'Delete'
+             %></td>
+        </tr>
+    <% end %>
+ </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
