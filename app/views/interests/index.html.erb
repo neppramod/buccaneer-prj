@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row col-xs-12">
+        <span class="col-xs-11"></span>
+        <span class="col-xs-1"><%= link_to '  New', new_interest_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'Add Interest' %></span>
+    </div> 
+
+<table class="table-striped table-bordered table-hover table-condensed col-xs-12">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="6">Actions</th>
+    </tr>
+    </thead>
+<tbody>
+    <% @interests.each do |interest| %>
+        <tr>
+            <td><%= interest.name %></td>
+            <td><%= interest.description %></td>
+	        
+            <td><%= link_to '', edit_interest_path(interest), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
+            <td><%= link_to '', interest_path(interest),
+
+		method: :delete,
+            data: {confirm: 'Are you sure?'},
+	    :class => 'glyphicon glyphicon-trash',
+            :title => 'Delete'
+             %></td>
+        </tr>
+    <% end %>
+ </tbody>
+</table>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,11 @@
+<h1>Expertise#show</h1>
+<p>
+  <strong>Expertise Area:</strong>
+  <%= @expertise.expertise %>
+</p>
+<p>
+
+
+
+<%= link_to 'Back', expertises_path %>
+<%= link_to 'Edit', edit_expertise_path(@expertise) %>

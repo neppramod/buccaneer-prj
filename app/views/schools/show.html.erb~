@@ -1,0 +1,12 @@
+<h1>School#show</h1>
+<p>
+  <strong>School Name:</strong>
+  <%= @school.SchoolName %>
+</p>
+<p>
+  <strong>Contact Number:</strong>
+  <%= @school.ContactNumber %>
+</p>
+
+<%= link_to 'Back', expertises_path %>
+<%= link_to 'Edit', edit_expertise_path(@expertise) %>

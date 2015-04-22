@@ -1,0 +1,21 @@
+<h1>Educations</h1>
+
+<%= link_to 'New Education', new_education_path, :class =>'btn btn-primary'%>
+
+<table>
+     <tr>
+      <th>Education level</th>
+     </tr>
+    <% @educations.each do |education| %>
+        <tr>
+            <td><%= education.educationlevel %></td>
+            <td><%= link_to 'Show', education_path(education) %></td>
+            <td><%= link_to 'Edit', edit_education_path(education) %></td>
+            <td><%= link_to 'Destroy', education_path(education),
+
+		method: :delete,
+            data: {confirm: 'Are you sure?'}
+             %></td>
+        </tr>
+    <% end %>
+</table>

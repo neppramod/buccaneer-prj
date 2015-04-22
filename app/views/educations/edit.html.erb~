@@ -1,0 +1,16 @@
+ 
+<h1>Education edit</h1>
+
+<%= form_for(@education, :url => {:action => 'update'}) do |p| %>
+    <p>
+      <%= p.label :educationlevel %><br>
+      <%= p.text_field :educationlevel %>
+    </p>
+    
+   
+    <p>
+      <%= submit_tag("Update Education") %>
+    </p>
+    
+    
+<% end %>

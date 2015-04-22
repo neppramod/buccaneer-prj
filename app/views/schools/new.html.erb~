@@ -1,0 +1,17 @@
+<h1>Add New School</h1>
+
+<%= form_for(@school, :url => {:action => 'create'}) do |p| %>
+  <p>
+    <%= p.label :SchoolName %>
+    <%= p.text_field :SchoolName %>
+  </p>
+
+   <p>
+    <%= p.label :ContactNumber %>
+    <%= p.text_field :ContactNumber %>
+  </p>
+
+  <p>
+    <%= submit_tag("Add School") %>
+  </p>
+<% end %>

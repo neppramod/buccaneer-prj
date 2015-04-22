@@ -1,0 +1,21 @@
+<h1>Expertises</h1>
+
+<%= link_to 'New Expertise', new_expertise_path%>
+
+<table>
+    <tr>
+        <th>Expertise</th>
+    </tr>
+    <% @expertises.each do |e| %>
+        <tr>
+            <td><%= e.expertise %></td>
+            <td><%= link_to 'Show', expertise_path(e) %></td>
+            <td><%= link_to 'Edit', edit_expertise_path(e) %></td>
+            <td><%= link_to 'Destroy', expertise_path(e),
+
+		method: :delete,
+            data: {confirm: 'Are you sure?'}
+             %></td>
+        </tr>
+    <% end %>
+</table>

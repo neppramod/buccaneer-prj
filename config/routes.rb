@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   resources :memberships
   resources :roles
 
+  resources :interests
+  resources :educations
+  resources :expertises
+  resources :schools 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
