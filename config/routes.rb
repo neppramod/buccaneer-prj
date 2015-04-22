@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
 
-  resources :persons do
-    resources :comments
-  end
+  resources :persons
 
   resources :addresses
   resources :events
   resources :donations
   resources :memberships
+  resources :roles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
