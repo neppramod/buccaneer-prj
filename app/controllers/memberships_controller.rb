@@ -31,11 +31,21 @@ class MembershipsController < ApplicationController
     participatingkvpeoplevalues = participatingkv[:participating_people]
     puts "Lets make it happening"
 
-    participatingkvuservalues.each do |uv|
-      @person = Person.where(:_id => uv).first
-      puts "User name is #{@person.name}"
-      @perons.push(@person)
+    
+
+    if participatingkvpeoplevalues
+      participatingkvpeoplevalues.each do |pv|
+        @person = Person.where(:_id => pv).first
+        puts "THis person's name is #{@person.name}"
+        @persons.push(@person)
+      end      
     end
+
+    #participatingkvpeoplevalues.each do |uv|
+      #@person = Person.where(:_id => participatingkvpeoplevalues).first
+      #puts "User name is #{@person.name}"
+     # @perons.push(@person)
+    #end
     #@users = User.where(:id => enrollmembership_params)
     @membership.persons = @persons
     #puts "Inside Create"
@@ -49,17 +59,18 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
 
-    @persons = []
+    #@persons = []
     participatingkv = participating_params
     participatingkvuservalues = participatingkv[:participating_people]
 
-    participatingkvuservalues.each do |uv|
-      @person = Person.where(:_id => uv).first
-      puts "User's name is #{@user.fname}"
-      @persons.push(@person)
-    end
-
-    @membership.persons = @persons
+     #participatingkvpeoplevalues.each do |uv|
+      @person = Person.where(:_id => participatingkvuservalues).first
+      #puts "User name is #{@person.name}"
+     # @perons.push(@person)
+    #end
+    #@users = User.where(:id => enrollmembership_params)
+    @membership.persons = @person
+    #puts "Inside Create"
 
     if @membership.update(membership_params)
       redirect_to @membership

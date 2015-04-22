@@ -1,23 +1,40 @@
-<h1>Memberships</h1>
+<div class="container">
+    <div class="row col-xs-12">
+        <span class="col-xs-11"></span>
+        <span class="col-xs-1"><%= link_to '  New', new_membership_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'Add New Member' %></span>
+    </div> 
 
-<%= link_to 'New Membership', new_membership_path%>
-
-<table>
+<table class="table-striped table-bordered table-hover table-condensed col-xs-12">
+    <thead>
     <tr>
-        <th>Membership Level</th>
+      <th>Member</th>
+      <th>Membership Level</th>
         <th>Amount</th>
-        <th colspan="2"></th>
+      <th colspan="6">Actions</th>
     </tr>
-    <% @memberships.each do |membership| %>
+    </thead>
+<tbody>
+   <% @memberships.each do |membership| %>
         <tr>
+            <td><%= membership.persons %></td>
             <td><%= membership.lvl %></td>
             <td><%= membership.amt %></td>
-            <td><%= link_to 'Show', membership_path(membership) %></td>
-            <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
-            <td><%= link_to 'Destroy', membership_path(membership),
-            method: :delete,
-            data: {confirm: 'Are you sure?'}
+            <td><%= link_to '', edit_membership_path(membership), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
+            <td><%= link_to '', membership_path(membership),
+
+        method: :delete,
+            data: {confirm: 'Are you sure?'},
+        :class => 'glyphicon glyphicon-trash',
+            :title => 'Delete'
              %></td>
         </tr>
     <% end %>
+ </tbody>
 </table>
+
+</div>
+</div>
+</div>
+
+
+

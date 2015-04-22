@@ -1,19 +1,2 @@
-<h1>Membership edit</h1>
-
-<%= form_for(@membership, :url => {:action => 'update'}) do |p| %>
-    <p>
-      <%= p.label :MembershipLevel %><br>
-      <%= p.text_field :lvl %>
-    </p>
-    <p>
-      <%= p.label :Amount%><br>
-      <%= p.text_field :amt%>
-    </p>
-    <p>
-      <%= p.label :persons%><br>
-      <%= select_tag "participating_people", options_from_collection_for_select(Person.all,'id','fname', @membership.persons.map { |e| e.id}), :multiple => true %>
-    </p>  
-    <p>
-      <%= submit_tag("Update Membership") %>
-    </p>
-<% end %>
+<h1>Edit Membership</h1>
+<%= render 'membership' %>
