@@ -22,6 +22,7 @@ class RolesController < ApplicationController
 
       if @role.save
         redirect_to @role
+        flash[:success] = "Added successfully!"
       else
         render 'new'
       end
@@ -33,6 +34,7 @@ class RolesController < ApplicationController
 
       if @role.update(role_params)
         redirect_to @role
+        flash[:success] = "update successfully!"
       else
         render 'edit'
       end

@@ -22,6 +22,7 @@
 
       if @address.save
         redirect_to @address
+        flash[:success] = "Added successfully!"
       else
         render 'new'
       end
@@ -33,6 +34,7 @@
 
       if @address.update(address_params)
         redirect_to @address
+        flash[:success] = "updated successfully!"
       else
         render 'edit'
       end

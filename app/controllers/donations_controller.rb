@@ -46,6 +46,7 @@ class DonationsController < ApplicationController
 
     if @donation.save
       redirect_to @donation
+      flash[:success] = "Added successfully!"
     else
       render 'new'
     end
@@ -71,6 +72,7 @@ class DonationsController < ApplicationController
 
     if @donation.update(donation_params)
       redirect_to @donation
+      flash[:success] = "Updated successfully!"
     else
       render 'edit'
     end

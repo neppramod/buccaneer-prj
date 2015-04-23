@@ -45,6 +45,7 @@ class EventsController < ApplicationController
 
     if @event.save
       redirect_to @event
+      flash[:success] = "Added successfully!"
     else
       render 'new'
     end
@@ -70,6 +71,7 @@ class EventsController < ApplicationController
 
     if @event.update(event_params)
       redirect_to @event
+      flash[:success] = "updated successfully!"
     else
       render 'edit'
     end

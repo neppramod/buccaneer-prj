@@ -1,5 +1,18 @@
 <%= form_for(@address, :html => {class: "form-horizontal", role: "form"} ) do |p| %>
 
+    <% if @address.errors.any? %>
+        <div id="error_explanation">
+
+          <h2><%= pluralize( @address.errors.count, "error") %> prohibited this msg from being saved:</h2>
+
+          <ul>
+            <% @address.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="row margin-top-15">
       <div class="col-xs-2"><%= p.label :street %></div>
       <div class="col-xs-4"><%= p.text_field :street, :class => 'form-control'%></div>

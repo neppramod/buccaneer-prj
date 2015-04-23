@@ -7,6 +7,19 @@ $(function(){
 </script>
 <%= form_for(@donation, :html => {class: "form-horizontal", role: "form"} ) do |p| %>
 
+       <% if @donation.errors.any? %>
+        <div id="error_explanation">
+
+          <h2><%= pluralize( @donation.errors.count, "error") %> prohibited this msg from being saved:</h2>
+
+          <ul>
+            <% @donation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="row margin-top-15">
       <div class="col-xs-2"><%= p.label :monetary_value %></div>
       <div class="col-xs-4"><%= p.text_field :monetary_value, :class => 'form-control'%></div>
