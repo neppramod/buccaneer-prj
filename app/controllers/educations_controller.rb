@@ -27,6 +27,7 @@ class EducationsController < ApplicationController
    
     if @education.save
       redirect_to @education
+      flash[:success] = "Added successfully!"
     else
       render 'new'
     end
@@ -39,6 +40,7 @@ class EducationsController < ApplicationController
   
     if @education.update(education_params)
       redirect_to @education
+      flash[:success] = "update successfully!"
     else
       render 'edit'
     end

@@ -25,6 +25,7 @@ class SchoolsController < ApplicationController
     @school = School.new(event_params)
     
       if @school.save
+        flash[:success] = "Added successfully!"
       redirect_to @school
     else
       render 'new'
@@ -36,6 +37,7 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
 
     if @school.update(event_params)
+      flash[:success] = "update successfully!"
       redirect_to @school
     else
       render 'edit'

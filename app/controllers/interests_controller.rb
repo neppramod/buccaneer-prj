@@ -28,6 +28,7 @@ class InterestsController < ApplicationController
 
     if @interest.save
       redirect_to @interest
+      flash[:success] = "Added successfully!"
     else
       render 'new'
     end
@@ -40,6 +41,7 @@ class InterestsController < ApplicationController
    
     if @interest.update(interest_params)
       redirect_to @interest
+      flash[:success] = "update successfully!"
     else
       render 'edit'
     end

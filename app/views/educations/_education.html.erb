@@ -4,8 +4,21 @@
 
 <%= form_for(@education, :html => {class: "form-horizontal", role: "form"} ) do |p| %>
 
+    <% if @education.errors.any? %>
+        <div id="error_explanation">
+
+          <h2><%= pluralize( @education.errors.count, "error") %> prohibited this msg from being saved:</h2>
+
+          <ul>
+            <% @education.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="row margin-top-15">
-      <div class="col-xs-2"><%= p.label :educationlevel %></div>
+      <div class="col-xs-2"><%= p.label :educationlevel, "Education Level:" %></div>
       <div class="col-xs-4"><%= p.text_field :educationlevel, :class => 'form-control'%></div>
     </div>
 

@@ -27,6 +27,7 @@ class ExpertisesController < ApplicationController
    
     if @expertise.save
       redirect_to @expertise
+      flash[:success] = "Added successfully!"
     else
       render 'new'
     end
@@ -39,6 +40,7 @@ class ExpertisesController < ApplicationController
    
     if @expertise.update(event_params)
       redirect_to @expertise
+      flash[:success] = "update successfully!"
     else
       render 'edit'
     end
