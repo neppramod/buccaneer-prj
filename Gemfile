@@ -32,8 +32,6 @@ gem 'jquery-ui-themes'
 gem 'bootbox-rails', '~>0.4'
 
 
-
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinksq
@@ -46,6 +44,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Mongoid
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
+
+# Sorcey (for login)
+gem 'sorcery'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
