@@ -8,7 +8,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.find(params[:id])
 
     @membership.persons.each do |p|
-      puts "Displaying user's membership => #{p.name}"
+      puts "Displaying user's membership => #{p.first_name}"
     end
 
     return @membership
@@ -23,36 +23,33 @@ class MembershipsController < ApplicationController
   end
 
   def create
-  	@membership = Membership.new(membership_params)
-
+  	    @membership = Membership.new(membership_params)
+    
     @persons = []
 
-    participatingkv = participating_params
-    participatingkvpeoplevalues = participatingkv[:participating_people]
-    puts "Lets make it happening"
-
     
+    participatingkv = participating_params
+    participatingpeoplevalues = participatingkv[:participating_people ]
+    puts "I am saying something here"
 
-    if participatingkvpeoplevalues
-      participatingkvpeoplevalues.each do |pv|
+    # Doners cannot work without null donations, still to prevent error, allowed null
+    if participatingpeoplevalues
+      participatingpeoplevalues.each do |pv|
         @person = Person.where(:_id => pv).first
-        puts "THis person's name is #{@person.name}"
+        puts "THis person's name is #{@person.first_name}"
         @persons.push(@person)
       end      
     end
-
-    #participatingkvpeoplevalues.each do |uv|
-      #@person = Person.where(:_id => participatingkvpeoplevalues).first
-      #puts "User name is #{@person.name}"
-     # @perons.push(@person)
-    #end
-    #@users = User.where(:id => enrollmembership_params)
+    
+    # Replace @donation.persons
     @membership.persons = @persons
-    #puts "Inside Create"
-  	if @membership.save
-            redirect_to @membership
+    
+
+    if @membership.save
+      redirect_to @membership
+      flash[:success] = "Added successfully!"
     else
-        render 'new'
+      render 'new'
     end
   end
 
@@ -74,6 +71,7 @@ class MembershipsController < ApplicationController
 
     if @membership.update(membership_params)
       redirect_to @membership
+      flash[:success] = "Updated successfully!"
     else
       render 'edit'
     end

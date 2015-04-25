@@ -16,7 +16,12 @@
 <tbody>
    <% @memberships.each do |membership| %>
         <tr>
-            <td><%= membership.persons %></td>
+            <td>
+            <%= membership.persons.each do |p| %>
+                <%= p.first_name %> <%= p.last_name %>
+            <% end %>            
+
+            </td>
             <td><%= membership.lvl %></td>
             <td><%= membership.amt %></td>
             <td><%= link_to '', edit_membership_path(membership), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>

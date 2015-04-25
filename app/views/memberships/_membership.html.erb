@@ -4,24 +4,40 @@
 
 <%= form_for(@membership, :html => {class: "form-horizontal", role: "form"} ) do |p| %>
 
+    <% if @membership.errors.any? %>
+        <div id="error_explanation">
+
+          <h2><%= pluralize( @membership.errors.count, "error") %> prohibited this msg from being saved:</h2>
+
+          <ul>
+            <% @membership.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="row margin-top-15">
-      <div class="col-xs-2"><%= p.label :membershiplevel %></div>
+      <div class="col-xs-2"><%= p.label :membershiplevel,"Membership level:" %></div>
       <div class="col-xs-4"><%= p.text_field :lvl, :class => 'form-control'%></div>
     </div>
 
 
     <div class="row margin-top-15">
-      <div class="col-xs-2"><%= p.label :membershipamount%></div>
+      <div class="col-xs-2"><%= p.label :membershipamount,"Amount:"%></div>
       <div class="col-xs-4"><%= p.text_field :amt, :class => 'form-control' %></div>
     </div>
 
-   <div class="row margin-top-15">
-     <div class="col-xs-2"><%= p.label :users %></div>
-     <div class="col-xs-4">
-     <%= select_tag "participating_people",
-     options_from_collection_for_select(Person.all, 'id', 'name', @membership.persons.map{ |j| j.id }), :multiple => true, :class => "form-control"  %>
-     </div>
- </div>
+
+
+     <div class="row margin-top-15">
+      <div class="col-xs-2"><%= p.label :users, 'Members:' %></div>
+      <div class="col-xs-4">
+
+        <%= select_tag "participating_people",
+                       options_from_collection_for_select(Person.all, 'id', 'first_name', @membership.persons.map{ |j| j.id }), :multiple => true, :class => "form-control" %>
+      </div>
+    </div>
 
 
 

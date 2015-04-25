@@ -35,6 +35,7 @@ class PersonsController < ApplicationController
 
   	if @person.save
             redirect_to @person
+            flash[:success] = "Added successfully!"
     else
         render 'new'
     end
@@ -57,6 +58,7 @@ class PersonsController < ApplicationController
 
     if @person.update(person_params)
       redirect_to @person
+      flash[:success] = "Updated successfully!"
     else
       render 'edit'
     end
