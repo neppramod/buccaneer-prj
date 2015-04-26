@@ -5,7 +5,7 @@
 	<input type="text" id="search" placeholder="Type to search..." />
     </div> 
 
-<table id="table" class="table-striped table-bordered table-hover table-condensed col-xs-12">
+<table class="table-striped table-bordered table-hover table-condensed col-xs-12">
     <thead>
     <tr>
       <th>Member</th>
