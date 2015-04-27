@@ -1,11 +1,12 @@
 <h1>Persons</h1>
 <div class="container">
-<div class="row col-xs-12">
-    <span class="col-xs-11"></span>
+<div class="row col-xs-12 margin-top-25">
+    <span class="col-xs-9"></span>
     <span class="col-xs-1"><%= link_to '  New', new_person_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'New Person' %></span>
+    <input type="text" id="search" placeholder="Type to search..." />
   </div>
   <div class="row">
-    <table class="table-striped table-bordered table-hover table-condensed col-xs-12"> 
+    <table id="table" class="table-striped table-bordered table-hover table-condensed col-xs-12 margin-top-05"> 
 
       <thead>
         <tr >

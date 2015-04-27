@@ -1,7 +1,15 @@
 <div class="container">
+	<div class="row col-xs-12 margin-top-25">
+		<span class="col-xs-9"></span>
+ 		<span class="col-xs-1"><%= link_to '  New', new_address_path, :class =>'glyphicon glyphicon-plus align: left', :title=>'New Address' %></span>
+ 		<input type="text" id="search" placeholder="Type to search..." />
+ 	</div>
+
+
+
   <div class="row">
-	<div class="col-sm-8">
-	<table class="table-striped table-bordered table-hover table-condensed"> 
+	<div class="col-xs-12">
+	<table id="table" class="table-striped table-bordered table-hover table-condensed col-xs-12 margin-top-05"> 
 	  <thead>
 		<tr >
           <th>Street</th>
@@ -35,7 +43,7 @@
 		<% end %>
 	  </tbody>
 	</table>
-      <%= link_to 'New Address', new_address_path, :class =>'glyphicon glyphicon-plus', :title=>'New Address' %>
+      
 	</div>
   </div>
 </div>
