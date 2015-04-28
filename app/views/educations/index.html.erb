@@ -16,6 +16,7 @@
    <% @educations.each do |education| %>
         <tr>
             <td><%= education.educationlevel %></td>
+            <td><%= link_to '', education_path(education), :class => 'glyphicon glyphicon-eye-open', :title => 'Show' %></td>
             <td><%= link_to '', edit_education_path(education), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
             <td><%= link_to '', education_path(education),
 

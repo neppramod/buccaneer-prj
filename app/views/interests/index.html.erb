@@ -18,7 +18,7 @@
         <tr>
             <td><%= interest.name %></td>
             <td><%= interest.description %></td>
-	        
+	         <td><%= link_to '', interest_path(interest), :class => 'glyphicon glyphicon-eye-open', :title => 'Show' %></td>
             <td><%= link_to '', edit_interest_path(interest), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
             <td><%= link_to '', interest_path(interest),
 

@@ -6,10 +6,6 @@ class EducationsController < ApplicationController
   def show
     @education = Education.find(params[:id])
 
-    @education.persons.each do |p|
-      puts "Show is showing a showey person => #{p.name}"
-    end
-
     return @education
   end
 

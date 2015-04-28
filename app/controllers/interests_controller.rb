@@ -5,11 +5,6 @@ class InterestsController < ApplicationController
 
   def show
     @interest = Interest.find(params[:id])
-
-    @interest.persons.each do |p|
-      puts "Show is showing interest person => #{p.name}"
-    end
-
     return @interest
   end
 
