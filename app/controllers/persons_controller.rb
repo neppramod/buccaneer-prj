@@ -62,6 +62,22 @@ class PersonsController < ApplicationController
     end
     
     @person.interests = @interests
+
+
+       # Education
+
+    @educations = []
+
+    
+    participatingkv = education_params
+    participatingpeoplevalues = participatingkv[:people_education ]
+
+    participatingpeoplevalues.each do |pv|
+      @education = Education.where(:_id => pv).first
+      @educations.push(@education)
+    end
+    
+    @person.educations = @educations
    
 
 
@@ -147,9 +163,26 @@ class PersonsController < ApplicationController
 
 
 
+    # Education
 
-    if @person.update(person_params)
-    #if @person.update(user_params)
+    @educations = []
+
+    
+    participatingkv = education_params
+    participatingpeoplevalues = participatingkv[:people_education ]
+
+    participatingpeoplevalues.each do |pv|
+      @education = Education.where(:_id => pv).first
+      @educations.push(@education)
+    end
+    
+    @person.educations = @educations
+
+
+
+
+    #if @person.update(person_params)
+    if @person.update(user_params)
       redirect_to @person
       flash[:success] = "Updated successfully!"
     else
@@ -187,6 +220,11 @@ class PersonsController < ApplicationController
  private
   def interest_params
     params.permit(:people_interest => [])
+  end
+
+ private
+  def education_params
+    params.permit(:people_education => [])
   end
 
 
