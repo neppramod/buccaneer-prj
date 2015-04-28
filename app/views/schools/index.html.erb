@@ -21,6 +21,7 @@
         <tr>
             <td><%= school.SchoolName %></td>
             <td><%= school.ContactNumber %></td>
+            <td><%= link_to '', school_path(school), :class => 'glyphicon glyphicon-eye-open', :title => 'Show' %></td>
             <td><%= link_to '', edit_school_path(school), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
             <td><%= link_to '', school_path(school),
 
