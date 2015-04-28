@@ -13,7 +13,7 @@ class PersonsController < ApplicationController
 
   def new
   	@person = Person.new
-        @person.addresses.new
+    @person.addresses.new
   end
 
   def edit
