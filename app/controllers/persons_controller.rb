@@ -6,13 +6,14 @@ class PersonsController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @person_address = Address.find( @person.address)
+    #@person_address = Address.find( @person.address)
 
-    return @event
+    #return @event
   end
 
   def new
   	@person = Person.new
+        @person.addresses.new
   end
 
   def edit
@@ -73,8 +74,10 @@ class PersonsController < ApplicationController
 
   private
   def person_params
-  	params.require(:person).permit(:first_name, :middle_name, :last_name,:email,:address_id,
-      :primary_contact,:secondary_contact)
+  	params.require(:person).permit(:first_name, :middle_name, :last_name,:email,
+      :primary_contact,:secondary_contact,
+      addresses_attributes: [:street, :city, :state, :county, :zip, :address_type]                                
+                                      )
   end
 
 
