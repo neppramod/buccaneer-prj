@@ -26,7 +26,7 @@ class Person
 
   #one user can have multiple roles :volunteer, doner, visitor
   #one role has many users
-  has_and_belongs_to_many :roles, :dependent => :destroy
+  has_and_belongs_to_many :roles
 
   #one person has many addresses and many addresses belong to one person
   #has_and_belongs_to_many :addresses, autosave: true

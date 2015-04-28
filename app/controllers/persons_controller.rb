@@ -44,7 +44,13 @@ class PersonsController < ApplicationController
 
   def update
     @person = Person.find(params[:id])
-
+    
+    # Lets first destroy all associated addresses
+    # Just a workaround (TODO: Fixme)
+    @person.addresses.each do |a|
+        a.destroy
+    end
+    
     #role part
      @roles = []
 
