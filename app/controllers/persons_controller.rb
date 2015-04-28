@@ -47,15 +47,34 @@ class PersonsController < ApplicationController
     
     # Lets first destroy all associated addresses
     # Just a workaround (TODO: Fixme)
-    @person.addresses.each do |a|
-        a.destroy
-    end
+    #@person.addresses.each do |a|
+    #    a.destroy
+    #end
+    
+    #@person.addresses.destroy_all
+    @addresses = @person.addresses
+    #@addresses.destroy_all
+
+
     
     #role part
      @roles = []
 
+    user_params = person_params
+    @address_attributes = user_params[:addresses_attributes]
+
+
+    #@address_attributes.shift
+    #@address_attributes.shift
+
+    #print(@address_attributes)
+
+    user_params[:addresses_attributes] = @address_attributes
+    @addresses.destroy_all
+
     participatingkv = participating_params
     participatingpeoplevalues = participatingkv[:participating_people ]
+
 
     participatingpeoplevalues.each do |pv|
       @role = Role.where(:_id => pv).first
@@ -63,7 +82,8 @@ class PersonsController < ApplicationController
     end
        @person.roles = @roles
 
-    if @person.update(person_params)
+    #if @person.update(person_params)
+    if @person.update(user_params)
       redirect_to @person
       flash[:success] = "Updated successfully!"
     else

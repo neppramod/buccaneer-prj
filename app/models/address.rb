@@ -35,7 +35,8 @@ class Address
 
   #one address belong to many person
   #has_many :persons
-  belongs_to :person
+  #belongs_to :person
+  has_and_belongs_to_many :persons
 
   #one address can has many events
   has_many :events
