@@ -7,6 +7,6 @@ class Interest
   field :description, type: String
    validates :description,  presence: true, length: { maximum: 50 } ,format: { with: /\A[a-zA-Z0-9 ]+\z/,
     message: "only allows letters" }
-  has_and_belongs_to_many :persons, autosave: true
+  
 
 end

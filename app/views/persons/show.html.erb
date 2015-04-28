@@ -19,14 +19,40 @@
   <div class="col-xs-2"><strong>Primary Contact :</strong></div>
   <div class="col-xs-10"><%= @person.primary_contact %></div>
 </div>
+
 <div class="row margin-top-10">
   <div class="col-xs-2"><strong>Secondary Contact :</strong></div>
   <div class="col-xs-10"><%= @person.secondary_contact %></div>
 </div>
+
 <div class="row margin-top-10">
   <div class="col-xs-2"><strong>Roles :</strong></div>
   <div class="col-xs-10"><% @person.roles.each do |p| %>
             <%= p.name %><br />
+        <% end %>
+  </div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Expertises :</strong></div>
+  <div class="col-xs-10"><% @person.expertises.each do |p| %>
+            <%= p.expertise %><br />
+        <% end %>
+  </div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Interests :</strong></div>
+  <div class="col-xs-10"><% @person.interests.each do |p| %>
+            <%= p.name %><br />
+        <% end %>
+  </div>
+</div>
+
+<div class="row margin-top-10">
+  <div class="col-xs-2"><strong>Educations :</strong></div>
+  <div class="col-xs-10"><% @person.educations.each do |p| %>
+            <%= p.educationlevel %><br />
         <% end %>
   </div>
 </div>

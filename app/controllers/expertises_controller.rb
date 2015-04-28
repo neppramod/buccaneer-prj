@@ -7,7 +7,7 @@ class ExpertisesController < ApplicationController
     @expertise = Expertise.find(params[:id])
 
     @expertise.persons.each do |p|
-      puts "Show is showing a showey person => #{p.name}"
+      puts "Show is showing a showey person => #{p.first_name}"
     end
 
     return @expertise

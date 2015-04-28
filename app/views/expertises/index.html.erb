@@ -16,6 +16,7 @@
    <% @expertises.each do |expertise| %>
         <tr>
             <td><%= expertise.expertise %></td>
+            <td><%= link_to '', expertise_path(expertise), :class => 'glyphicon glyphicon-eye-open', :title => 'Show' %></td>
             <td><%= link_to '', edit_expertise_path(expertise), :class => 'glyphicon glyphicon-pencil', :title => 'Edit' %></td>
             <td><%= link_to '', expertise_path(expertise),
 

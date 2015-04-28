@@ -34,6 +34,38 @@ class PersonsController < ApplicationController
     end
        @person.roles = @roles
 
+
+   @expertises = []
+
+    
+    participatingkv = expertise_params
+    participatingpeoplevalues = participatingkv[:people_expertise ]
+
+    participatingpeoplevalues.each do |pv|
+      @expertise = Expertise.where(:_id => pv).first
+      @expertises.push(@expertise)
+    end
+       @person.expertises = @expertises
+
+
+     # Interest
+
+    @interests = []
+
+    
+    participatingkv = interest_params
+    participatingpeoplevalues = participatingkv[:people_interest ]
+
+    participatingpeoplevalues.each do |pv|
+      @interest = Interest.where(:_id => pv).first
+      @interests.push(@interest)
+    end
+    
+    @person.interests = @interests
+   
+
+
+
   	if @person.save
             redirect_to @person
             flash[:success] = "Added successfully!"
@@ -82,8 +114,42 @@ class PersonsController < ApplicationController
     end
        @person.roles = @roles
 
-    #if @person.update(person_params)
-    if @person.update(user_params)
+    
+    # Expertise
+
+    @expertises = []
+
+    
+    participatingkv = expertise_params
+    participatingpeoplevalues = participatingkv[:people_expertise ]
+
+    participatingpeoplevalues.each do |pv|
+      @expertise = Expertise.where(:_id => pv).first
+      @expertises.push(@expertise)
+    end
+       @person.expertises = @expertises
+
+
+    # Interest
+
+    @interests = []
+
+    
+    participatingkv = interest_params
+    participatingpeoplevalues = participatingkv[:people_interest ]
+
+    participatingpeoplevalues.each do |pv|
+      @interest = Interest.where(:_id => pv).first
+      @interests.push(@interest)
+    end
+    
+    @person.interests = @interests
+
+
+
+
+    if @person.update(person_params)
+    #if @person.update(user_params)
       redirect_to @person
       flash[:success] = "Updated successfully!"
     else
@@ -111,4 +177,17 @@ class PersonsController < ApplicationController
   def participating_params
     params.permit(:participating_people => [])
   end
+
+ private
+  def expertise_params
+    params.permit(:people_expertise => [])
+  end
+
+
+ private
+  def interest_params
+    params.permit(:people_interest => [])
+  end
+
+
 end
