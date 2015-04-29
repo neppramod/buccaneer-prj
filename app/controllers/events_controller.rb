@@ -80,7 +80,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:eventName, :eventStartDate, :eventEndDate,:location, :description)
+    params.require(:event).permit(:eventName, :eventStartDate,:eventEndDate,:street,:city,:state,:county,:zip,:description)
   end
 
   private
