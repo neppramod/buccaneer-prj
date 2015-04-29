@@ -1,7 +1,7 @@
 
 <div class="row margin-top-10">
   <div class="col-xs-2"><strong>Member:</strong></div>
-  <div class="col-xs-10"><%= @membership.persons.each do |p| %>
+  <div class="col-xs-10"><% @membership.persons.each do |p| %>
                 <%= p.first_name %> <%= p.last_name %>
             <% end %> 
   </div>

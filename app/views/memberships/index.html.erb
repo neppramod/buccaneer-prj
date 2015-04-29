@@ -20,12 +20,9 @@
    <% @memberships.each do |membership| %>
         <tr>
             <td>
-            <%= membership.persons.each do |p| %>
-
-                <%= p.first_name  %> <%= p.last_name %>
-
+            <% membership.persons.each do |p| %>
+                <%= p.first_name%>&nbsp;<%= p.last_name %>
             <% end %>            
-
             </td>
             <td><%= membership.lvl %></td>
             <td><%= membership.amt %></td>
