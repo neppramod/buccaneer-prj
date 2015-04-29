@@ -5,8 +5,24 @@ class InterestsController < ApplicationController
 
   def show
     @interest = Interest.find(params[:id])
-    return @interest
+
+    @persons = Person.all
+
+    @pp = []
+
+     @persons.each do |p| 
+    	p.interests.each do |i| 
+    	  if i.name ==  @interest.name
+    	  puts "Show is showing a showey person Interest => #{i.name}"
+    	  @pp.push(p) 
+    	  end
+    	end
+    end	  
+    return @PP	
+    	  	 
   end
+
+
 
   def new
     @interest = Interest.new

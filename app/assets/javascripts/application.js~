@@ -21,20 +21,21 @@
 //= require bootbox
 
 
-<script>
-        // When document is ready: this gets fired before body onload <img src='http://blogs.digitss.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />
-        $(function(){
-         $("#search").keyup(function(){         	
-        	_this = this;
-        	// Show only matching TR, hide rest of them
-        	$.each($("#table tbody").find("tr"), function() {
-            	console.log($(this).text());
-            	if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
-               		$(this).hide();
-            	else
-                 	$(this).show();                
-        	});
-    	  }); 
 
-         });
-</script>
+// When document is ready: this gets fired before body onload <img src='http://blogs.digitss.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />
+
+$(function(){
+ $("#search").keyup(function(){         	
+	_this = this;
+	// Show only matching TR, hide rest of them
+	$.each($("#table tbody").find("tr"), function() {
+    	console.log($(this).text());
+    	if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+       		$(this).hide();
+    	else
+         	$(this).show();                
+	});
+  }); 
+
+ });
+

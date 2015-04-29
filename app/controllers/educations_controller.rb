@@ -6,7 +6,19 @@ class EducationsController < ApplicationController
   def show
     @education = Education.find(params[:id])
 
-    return @education
+    @persons = Person.all
+
+    @pp = []
+
+     @persons.each do |p| 
+      p.educations.each do |i| 
+        if i.educationlevel ==  @education.educationlevel
+        puts "Show is showing a showey person Interest => #{i.educationlevel}"
+        @pp.push(p) 
+        end
+      end
+    end   
+    return @PP  
   end
 
   def new

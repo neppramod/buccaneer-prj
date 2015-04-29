@@ -23,6 +23,7 @@
 
 
 // When document is ready: this gets fired before body onload <img src='http://blogs.digitss.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />
+
 $(function(){
  $("#search").keyup(function(){         	
 	_this = this;

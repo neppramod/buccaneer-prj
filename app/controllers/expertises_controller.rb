@@ -6,11 +6,20 @@ class ExpertisesController < ApplicationController
   def show
     @expertise = Expertise.find(params[:id])
 
-    @expertise.persons.each do |p|
-      puts "Show is showing a showey person => #{p.first_name}"
-    end
+    @persons = Person.all
 
-    return @expertise
+    @pp = []
+
+     @persons.each do |p| 
+      p.expertises.each do |i| 
+        if i.expertise ==  @expertise.expertise
+        puts "Show is showing a showey person Interest => #{i.expertise}"
+        @pp.push(p) 
+        end
+      end
+    end   
+    return @PP , @expertise 
+
   end
 
   def new
