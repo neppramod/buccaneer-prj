@@ -34,7 +34,7 @@
         <ul class="nav navbar-nav">
             <% if current_user %>
           <!--<li class="active"><a href="/persons">Users</a></li> -->
-          <li class="<%= 'active' if params[:controller] == 'persons' %>" ><a href="/persons">Users</a></li>
+          <li class="<%= 'active' if params[:controller] == 'persons' %>" ><a href="/persons">Persons</a></li>
           <li class="<%= 'active' if params[:controller] == 'events' %>" ><a href="/events">Events</a></li>
           <li class="<%= 'active' if params[:controller] == 'donations' %>" ><a href="/donations">Donations</a></li>
 		  <li class="<%= 'active' if params[:controller] == 'memberships' %>" ><a href="/memberships">Memberships</a></li>
