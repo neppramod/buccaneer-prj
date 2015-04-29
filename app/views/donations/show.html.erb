@@ -26,14 +26,12 @@
         <thead>
         <tr>
           <th>Name</th>
-          <th>Hobby</th>
         </tr>
         </thead>
         <tbody>
         <% @donation.persons.each do |p| %>
             <tr>
-              <td><%= p.name %></td>
-              <td><%= p.hobby %></td>
+              <td><%= p.first_name %>&nbsp; <%= p.last_name %></td>
             </tr>
         <% end %>
         </tbody>
