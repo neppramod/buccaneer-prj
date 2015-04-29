@@ -34,8 +34,43 @@ class PersonsController < ApplicationController
     end
        @person.roles = @roles
 
+    @addresses = []
 
    @expertises = []
+   temp_address = temporary_address_params[:temporary_address_select]
+
+#@person.addresses = nil
+
+
+    if (temp_address != '')
+      #@addresses.push(Address.where(:_id => temp_address))
+      #tmp_addr = Address.where(:_id => temp_address).first
+      tmp_addr = Address.find_by id: temp_address
+      #tmp_addr = Address.find(params[tmp_addr])
+      #@person.addresses.push(tmp_addr)
+      @addresses << tmp_addr
+      #@person.addresses[0] = tmp_addr
+    end
+
+
+
+    perm_address = perm_address_params[:permanent_address_select]
+
+    if (perm_address != '')
+      #@addresses.push(Address.where(:_id => perm_address))
+      #@person.addresses.push(Address.where(:_id => perm_address))
+      #prm_addr = Address.where(:_id => perm_address).first
+      prm_addr = Address.find_by id: perm_address
+      #@person.addresses.push(prm_addr)
+      @addresses << prm_addr
+      #@person.addresses[1] = prm_addr
+    end
+
+    if @addresses.size == 2
+      @person.addresses = @addresses
+    end
+
+    #@person.addresses = @addresses
 
     
     participatingkv = expertise_params
@@ -101,6 +136,10 @@ class PersonsController < ApplicationController
     
     #@person.addresses.destroy_all
     @addresses = @person.addresses
+
+
+
+
     #@addresses.destroy_all
 
 
@@ -111,14 +150,34 @@ class PersonsController < ApplicationController
     user_params = person_params
     @address_attributes = user_params[:addresses_attributes]
 
+    #@address_attributes.each do |index, addr_attr|
+    #  @address_attributes[index.to_i][:_id] = @addresses[index.to_i]
+    #end
+    #@address_attributes[0][:_id] = []
+    #@address_attributes[0][:_id].push(@addresses[0])
+    #@address_attributes[1][:_id] = '345'
 
-    #@address_attributes.shift
-    #@address_attributes.shift
+    #@address_attributes[0][:_id] = @addresses[0][:_id]
+    #@address_attributes[1][:_id] = @addresses[1][:_id]
+    #@address_attributes
 
-    #print(@address_attributes)
+    #@updated_address = []
+    #@updated_address << @addresses[0].update_attributes(@address_attributes[0])
+    #@updated_address << @addresses[1].update_attributes(@address_attributes[1])
+
+    @addresses[0].update_attributes(@address_attributes[0])
+    @addresses[1].update_attributes(@address_attributes[1])
+
 
     user_params[:addresses_attributes] = @address_attributes
-    @addresses.destroy_all
+    #user_params[:addresses_attributes] = []
+    #user_params[:addresses_attributes] = []
+    #user_params.delete('address_attributes')
+
+
+    @person.addresses = @addresses
+    #@addresses.destroy_all
+    #@person.addresses.destroy_all
 
     participatingkv = participating_params
     participatingpeoplevalues = participatingkv[:participating_people ]
@@ -227,5 +286,14 @@ class PersonsController < ApplicationController
     params.permit(:people_education => [])
   end
 
+private
+  def temporary_address_params
+    params.permit(:temporary_address_select)
+  end
+
+  private
+  def perm_address_params
+    params.permit(:permanent_address_select)
+  end
 
 end

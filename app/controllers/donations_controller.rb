@@ -6,9 +6,9 @@ class DonationsController < ApplicationController
   def show
     @donation = Donation.find(params[:id])
 
-    @donation.persons.each do |p|
-      puts "Show is showing a showey person => #{p.name}"
-    end
+    #@donation.persons.each do |p|
+    #  puts "Show is showing a showey person => #{p.name}"
+    #end
 
     return @donation
   end
@@ -35,7 +35,7 @@ class DonationsController < ApplicationController
     if participatingpeoplevalues
       participatingpeoplevalues.each do |pv|
         @person = Person.where(:_id => pv).first
-        puts "THis person's name is #{@person.name}"
+        #puts "THis person's name is #{@person.name}"
         @persons.push(@person)
       end      
     end

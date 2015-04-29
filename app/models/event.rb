@@ -14,8 +14,6 @@ class Event
     message: "must be date and time"} 
 
   field :location, type: String
-     validates :location,  presence: true, length: { maximum: 50 } ,format: { with: /\A[a-zA-Z ]+\z/,
-    message: "only allows letters and white space" }
 
   field :description, type: String
      validates :description,  presence: true, length: { maximum: 50 } ,format: { with: /\A[a-zA-Z ]+\z/,

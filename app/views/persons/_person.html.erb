@@ -5,6 +5,33 @@ $(function(){
     $( ".datetimepicker" ).datepicker({
     dateFormat: "yy-mm-dd"
     });
+
+    $('#add_address_btn').hide();
+    $('.addr_select').hide();
+
+
+    $("#participating_people")[0].selectedIndex = 0;
+    $("#people_expertise")[0].selectedIndex = 0;
+    $("#people_interest")[0].selectedIndex = 0;
+    $("#people_education")[0].selectedIndex = 0;
+
+
+    $('#add_address_btn').click(function(){
+        $('.addr_select').hide();
+        $('.addr_block').show();
+        $('#add_address_btn').hide();
+        $('#select_address_btn').show();
+    });
+
+    $('#select_address_btn').click(function(){
+        $('.addr_select').show();
+        $('.addr_block').hide();
+        $('#add_address_btn').show();
+        $('#select_address_btn').hide();
+    });
+
+
+
 });
 </script>
 <%= form_for(@person, :url => {:action => 'create'}) do |p| %>
@@ -79,9 +106,8 @@ $(function(){
       </div>
     </div>
 
-
-    <div class="row margin-top-15">
-      <div class="col-xs-2"><%= p.label :roles, 'User Education' %></div>
+     <div class="row margin-top-15">
+      <div class="col-xs-2"><%= p.label :roles, 'People Education' %></div>
       <div class="col-xs-4">
 
         <%= select_tag "people_education",
@@ -89,9 +115,22 @@ $(function(){
       </div>
     </div>
 
+<div class="row margin-top-15">
+        <input type="button" class="btn btn-primary" id="select_address_btn"  value="Select Address"/>
+        <input type="button" class="btn btn-primary" id="add_address_btn"  value="Add Address"/>
+    </div>
 
     <h2>Temporary Address</h2>
-    <%= p.fields_for :addresses do |a| %> 
+    <div class="row margin-top-15 addr_select">
+      <div class="col-xs-2"><%= p.label :addresses, 'Temporary Address' %></div>
+      <div class="col-xs-4">
+
+        <%= select_tag "temporary_address_select",
+                       options_from_collection_for_select(Address.all, 'id', 'street', @person.addresses.map{ |j| j.id }), :multiple => false, :class => "form-control", :include_blank => true %>
+      </div>
+    </div>
+    <div class="addr_block">
+    <%= p.fields_for :addresses do |a| %>
         <div class="row margin-top-15">
             <div class="col-xs-2"><%= a.label :street, "Street"%></div>
             <div class="col-xs-4"><%= a.text_field :street, :class => 'form-control'%></div>
@@ -118,8 +157,20 @@ $(function(){
         </div>
 
     <% end %>
+    </div>
     
     <h2>Permanent Address</h2>
+
+
+    <div class="row margin-top-15 addr_select">
+      <div class="col-xs-2"><%= p.label :addresses, 'Permanent Address' %></div>
+      <div class="col-xs-4">
+
+        <%= select_tag "permanent_address_select",
+                       options_from_collection_for_select(Address.all, 'id', 'street', @person.addresses.map{ |j| j.id }), :multiple => false, :class => "form-control", :include_blank => true %>
+      </div>
+    </div>
+    <div class="addr_block">
     <%= p.fields_for :addresses do |b| %> 
         <div class="row margin-top-15">
             <div class="col-xs-2"><%= b.label :street, "Street"%></div>
@@ -147,7 +198,7 @@ $(function(){
         </div>
 
     <% end %>
-
+    </div>
   
     <div class="container margin-top-25">
       <%= button_tag(type: "submit", class: "btn btn-primary") do %>

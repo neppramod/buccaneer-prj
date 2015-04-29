@@ -6,10 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    @event_location = Address.find( @event.location)
-
     @event.persons.each do |p|
-      puts "Show is showing a showey person => #{p.name}"
     end
 
     return @event
@@ -31,11 +28,9 @@ class EventsController < ApplicationController
     
     participatingkv = participating_params
     participatingpeoplevalues = participatingkv[:participating_people ]
-    puts "I am saying something here"
 
     participatingpeoplevalues.each do |pv|
       @person = Person.where(:_id => pv).first
-      puts "THis person's name is #{@person.name}"
       @persons.push(@person)
     end
 
@@ -62,7 +57,6 @@ class EventsController < ApplicationController
     
     participatingpeoplevalues.each do |pv|
       @person = Person.where(:_id => pv).first
-      puts "THis person's name is #{@person.name}"
       @persons.push(@person)
     end
 

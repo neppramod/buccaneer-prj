@@ -41,4 +41,5 @@ class Address
   #one address can has many events
   has_many :events
 
+
 end
