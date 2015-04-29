@@ -30,8 +30,8 @@ class Person
 
   #one person has many addresses and many addresses belong to one person
   #has_and_belongs_to_many :addresses, :dependent => :restrict, autosave: true
-  has_and_belongs_to_many :addresses, :dependent => :delete, autosave: true
-  #has_and_belongs_to_many :addresses, :dependent => :destroy, autosave: true
+  #has_and_belongs_to_many :addresses, :dependent => :delete, autosave: true
+  has_and_belongs_to_many :addresses, :dependent => :destroy, autosave: true
   #has_many :addresses, autosave: true
 
   has_and_belongs_to_many :expertises, autosave: true
