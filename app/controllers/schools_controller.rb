@@ -85,7 +85,7 @@ class SchoolsController < ApplicationController
 
   private
   def event_params
-    params.require(:school).permit(:SchoolName, :ContactNumber, :participating_people => [])
+    params.require(:school).permit(:SchoolName, :ContactNumber,:street,:city, :state,:county,:zip, :participating_people => [])
   end
 
   private
