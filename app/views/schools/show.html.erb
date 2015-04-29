@@ -8,6 +8,16 @@
   <div class="col-xs-1"><%= @school.ContactNumber %></div>
 </div>
 
+<div class="row margin-top-10">
+	<h3>Student Count  &nbsp;<%= @school.persons.count %></h3>
+  <div class="col-xs-2"><strong>Students:</strong></div>
+  <div class="col-xs-10"><% @school.persons.each do |p| %>
+
+                <%= p.first_name %> <%= p.last_name %><br />
+            <% end %> 
+  </div>
+</div>
+
 <div class="container margin-top-25">
   <%= link_to 'Edit', edit_school_path(@school), class: "btn btn-primary" %>
   <%= link_to 'Ok', schools_path , class: "btn btn-primary" %>

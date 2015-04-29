@@ -7,7 +7,7 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
 
     @school.persons.each do |p|
-      puts "Show is showing a showey person => #{p.name}"
+      
     end
 
     return @school
@@ -24,6 +24,23 @@ class SchoolsController < ApplicationController
   def create
     @school = School.new(event_params)
     
+    @persons = []
+
+    
+    participatingkv = participating_params
+    participatingpeoplevalues = participatingkv[:participating_people ]
+
+    # Doners cannot work without null donations, still to prevent error, allowed null
+    if participatingpeoplevalues
+      participatingpeoplevalues.each do |pv|
+        @person = Person.where(:_id => pv).first
+        @persons.push(@person)
+      end      
+    end
+    
+    # Replace @donation.persons
+    @school.persons = @persons
+
       if @school.save
         flash[:success] = "Added successfully!"
       redirect_to @school
@@ -35,6 +52,21 @@ class SchoolsController < ApplicationController
 
   def update
     @school = School.find(params[:id])
+
+     @persons = []
+
+    participatingkv = participating_params
+    participatingkvuservalues = participatingkv[:participating_people]
+
+    #@persons << Person.where(:_id => participatingkvuservalues).first
+
+    if participatingkvuservalues
+      participatingkvuservalues.each do |pv|
+        @person = Person.where(:_id => pv).first
+        #puts "THis person's name is #{@person.name}"
+        @persons.push(@person)
+      end      
+    end
 
     if @school.update(event_params)
       flash[:success] = "update successfully!"
@@ -53,7 +85,12 @@ class SchoolsController < ApplicationController
 
   private
   def event_params
-    params.require(:school).permit(:SchoolName, :ContactNumber)
+    params.require(:school).permit(:SchoolName, :ContactNumber, :participating_people => [])
+  end
+
+  private
+  def participating_params
+    params.permit(:participating_people => [])
   end
 
 end
