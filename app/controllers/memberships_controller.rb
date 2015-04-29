@@ -56,18 +56,22 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
 
-    #@persons = []
+     @persons = []
+
     participatingkv = participating_params
     participatingkvuservalues = participatingkv[:participating_people]
 
-     #participatingkvpeoplevalues.each do |uv|
-      @person = Person.where(:_id => participatingkvuservalues).first
-      #puts "User name is #{@person.name}"
-     # @perons.push(@person)
-    #end
-    #@users = User.where(:id => enrollmembership_params)
-    @membership.persons = @person
-    #puts "Inside Create"
+    #@persons << Person.where(:_id => participatingkvuservalues).first
+
+    if participatingkvuservalues
+      participatingkvuservalues.each do |pv|
+        @person = Person.where(:_id => pv).first
+        #puts "THis person's name is #{@person.name}"
+        @persons.push(@person)
+      end      
+    end
+      
+    @membership.persons = @persons
 
     if @membership.update(membership_params)
       redirect_to @membership
