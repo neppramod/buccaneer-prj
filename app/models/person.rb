@@ -6,20 +6,14 @@ class Person
     message: "only allows letters" }
 
   field :middle_name, type: String
-   validates :middle_name,  presence: true, length: { maximum: 50 } ,format: { with: /\A[a-zA-Z]+\z/,
-    message: "only allows letters" }
 
   field	:last_name, type: String
-    validates :last_name,  presence: true, length: { maximum: 50 } ,format: { with: /\A[a-zA-Z]+\z/,
-    message: "only allows letters" }
 
   field	:email, type: String
     validates :email,  presence: true, length: { maximum: 50 } ,format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
     message: "only allows letters" }
 
   field :primary_contact, type: String
-    validates :primary_contact,  presence: true, length: { maximum: 50 },format: { with: /\A[0-9]+\z/,
-    message: "only allows Numbers" }
 
   field	:secondary_contact, type: String
  
